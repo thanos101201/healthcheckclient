@@ -5,7 +5,7 @@ import { AiOutlineGooglePlus } from 'react-icons/ai';
 import axios from 'axios';
 function Home() {
     const handleSignin = () => {
-        axios.get('http://localhost:3001/user/url').then((response) => {
+        axios.get('https://healthcheckserver.vercel.app/user/url').then((response) => {
             window.open(response.data.url, "_self");
         }).catch((er) => {
             alert(er.message);

@@ -8,14 +8,14 @@ function Sign() {
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const code = searchParams.get("code");
-        axios.get('http://localhost:3001/user/points', {
+        axios.get('https://healthcheckserver.vercel.app/user/points', {
             headers: {
                 code: code
             }
         }).then((response) => {
             if(response.data.message === 'User added' || response.data.message === 'User updated'){
                 localStorage.setItem('acc_tk', response.data.acc_tk);
-                window.open("http://localhost:3000/detail", "_self");
+                window.open("https://healthcheckclient.vercel.app/detail", "_self");
             }
             else{
                 alert(response.data.message);

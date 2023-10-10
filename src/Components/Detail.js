@@ -13,10 +13,10 @@ function Detail() {
   useEffect(() => {
     let accTk = localStorage.getItem('acc_tk');
     if (accTk === undefined) {
-      window.open('http://localhost:3000', '_self');
+      window.open('https://healthcheckclient.vercel.app', '_self');
     }
     axios
-      .get('http://localhost:3001/user', {
+      .get('https://healthcheckserver.vercel.app/user', {
         headers: {
           acctk: accTk,
         },
@@ -30,7 +30,7 @@ function Detail() {
       })
       .catch((error) => {
         if(error.response.data.message === 'Request failed with status code 401'){
-          window.open("http://localhost:3000/", "_self");
+          window.open("https://healthcheckclient.vercel.app/", "_self");
         }
         console.log(error);
         alert("error.message");
